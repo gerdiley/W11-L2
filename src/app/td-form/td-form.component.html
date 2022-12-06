@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>TD form</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form (ngSubmit)="submit(form)" #form = "ngForm">
+        <div id="user-info" ngModelGroup="hero">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input class="form-control"  type="text" id="nome" name="nome" [ngModel]="hero.nome" required #nome="ngModel">
+            <p *ngIf="nome.invalid && nome.touched">Questo campo è obbligatorio</p>
+          </div>
+
+          <div class="form-group">
+            <label for="alterego">Alterego</label>
+            <input class="form-control" type="text" id="alterego" name="alterego" [ngModel]="hero.alterego" required #alterego="ngModel">
+            <p *ngIf="alterego.invalid && alterego.touched">Questo campo è obbligatorio</p>
+          </div>
+
+          <div class="form-group">
+            <label for="superpotere">Superpotere</label>
+            <select class="form-control" name="superpotere" id="superpotere" class="form-select" [ngModel]="hero.superpotere" required
+              #superpotere="ngModel">
+              <option value="forza">forza</option>
+              <option value="volo">volo</option>
+              <option value="Invisibilità">Invisibilità</option>
+            </select>
+            <p *ngIf="superpotere.invalid && superpotere.touched">Questo campo è obbligatorio</p>
+          </div>
+
+          <div class="form-group">
+            <label for="nemico">nemico</label>
+            <input class="form-control" type="text" id="nemico" name="nemico" [ngModel]="hero.nome" #nemico="ngModel" ngModel maxlength="10">
+          </div>
+
+          <div class="form-group">
+            <label for="pianeta">pianeta</label>
+            <input class="form-control" type="text" id="pianeta" name="pianeta" [ngModel]="hero.nome" #pianeta="ngModel" required>
+            <p *ngIf="pianeta.invalid && pianeta.touched">Questo campo è obbligatorio</p>
+          </div>
+
+          <div class="form-group">
+            <label for="debolezza">debolezza</label>
+            <input class="form-control" type="text" id="debolezza" name="debolezza" [ngModel]="hero.nome" #debolezza="ngModel">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Reactive form</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="form">
+        <div formGroupName="heroInfo">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" class="form-control" formControlName="nome">
+            <span *ngIf="getFormC('heroInfo.nome')?.invalid && getFormC('heroInfo')?.touched"></span>
+
+            <ng-container *ngIf="getErrorsC('hero.Info.nome', 'required')">Campo username obbligatorio</ng-container>
+          </div>
+
+          <div class="form-group">
+            <label for="alterego">alterego</label>
+            <input type="text" id="alterego" class="form-control" formControlName="alterego">
+            <span *ngIf="getFormC('heroInfo.alterego')?.invalid && getFormC('heroInfo')?.touched"></span>
+
+            <ng-container *ngIf="getErrorsC('hero.Info.alterego', 'required')">Campo username obbligatorio
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <label for="superpotere">Superpotere</label>
+            <select name="" id="superpotere" formControlName="superpotere" class="form-control">
+              <option value="forza">forza</option>
+              <option value="Volo">Volo</option>
+              <option value="Invisibilita">Invisibilita</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="nemico">nemico</label>
+            <input type="text" id="nemico" class="form-control" formControlName="nemico">
+          </div>
+
+
+          <div class="form-group">
+            <label for="pianeta">pianeta</label>
+            <input type="text" id="pianeta" class="form-control" formControlName="pianeta">
+            <span *ngIf="getFormC('heroInfo.pianeta')?.invalid && getFormC('heroInfo')?.touched"></span>
+
+            <ng-container *ngIf="getErrorsC('hero.Info.alterego', 'required')">Campo username obbligatorio
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <label for="debolezza">Debolezza</label>
+            <input type="text" id="debolezza" class="form-control" formControlName="debolezza">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
